@@ -34,7 +34,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '*'
-      - run: pnpm i
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: |
+            - args: [--frozen-lockfile]
       - run: node index.js
       - name: Setup Pages
         uses: actions/configure-pages@v2
