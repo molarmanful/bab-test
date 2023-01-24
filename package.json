@@ -1,0 +1,9 @@
+{
+	"type": "module",
+	"dependencies": {
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.21",
+		"pug": "^3.0.2",
+		"stylus": "^0.59.0"
+	}
+}
