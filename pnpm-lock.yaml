@@ -8,6 +8,7 @@ specifiers:
   '@vitejs/plugin-vue': ^4.0.0
   browserslist: ^4.21.4
   js-combinatorics: ^2.1.1
+  js-easing-functions: ^1.0.3
   lightningcss: ^1.18.0
   unocss: ^0.48.5
   unocss-preset-autoprefixer: ^0.0.4
@@ -18,6 +19,7 @@ specifiers:
 dependencies:
   '@babylonjs/core': 5.43.1
   js-combinatorics: 2.1.1
+  js-easing-functions: 1.0.3
   vue: 3.2.45
   vue-resize-observer: 2.0.15
 
@@ -940,6 +942,10 @@ packages:
 
   /js-combinatorics/2.1.1:
     resolution: {integrity: sha512-jKLV+oIyz0TCr7GBhyuOwngntu1rCxSO+lbVTS232HYowA13CTk0RSmPq6nuXGLFaq2ZWLDQqEwJ6LCDnYR0+A==}
+    dev: false
+
+  /js-easing-functions/1.0.3:
+    resolution: {integrity: sha512-skDTLPuwWvAVYQVPwmjcFuCv8i8jtVD4L4FELxICwbS1HWFhs+627vOdDhQUGJMe9os6QO2XgEI4qb5umiUQFg==}
     dev: false
 
   /kolorist/1.6.0:
