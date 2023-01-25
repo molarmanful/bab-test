@@ -2,9 +2,19 @@ lockfileVersion: 5.4
 
 specifiers:
   '@babylonjs/core': ^5.43.1
+  '@babylonjs/gui': ^5.43.1
+  '@babylonjs/gui-editor': ^5.43.1
   '@babylonjs/inspector': ^5.43.1
+  '@babylonjs/loaders': ^5.43.1
+  '@babylonjs/materials': ^5.43.1
+  '@babylonjs/serializers': ^5.43.1
+  '@types/react': ^18.0.27
+  '@types/react-dom': ^18.0.10
   '@unocss/reset': ^0.48.5
   '@vitejs/plugin-vue': ^4.0.0
+  babylonjs-gltf2interface: ^5.43.1
+  browserslist: ^4.21.4
+  lightningcss: ^1.18.0
   unocss: ^0.48.5
   unocss-preset-autoprefixer: ^0.0.4
   vite: ^4.0.4
@@ -12,14 +22,24 @@ specifiers:
 
 dependencies:
   '@babylonjs/core': 5.43.1
-  '@babylonjs/inspector': 5.43.1_@babylonjs+core@5.43.1
+  '@babylonjs/gui': 5.43.1_@babylonjs+core@5.43.1
+  '@babylonjs/gui-editor': 5.43.1_pjibe5w4es5u6icqfvnk2zw56y
+  '@babylonjs/inspector': 5.43.1_bmecces5mfjf6blte5bfqeb5ju
+  '@babylonjs/loaders': 5.43.1_glufdhy5gescjdw5mo4zsoqw3u
+  '@babylonjs/materials': 5.43.1_@babylonjs+core@5.43.1
+  '@babylonjs/serializers': 5.43.1_glufdhy5gescjdw5mo4zsoqw3u
+  babylonjs-gltf2interface: 5.43.1
   vue: 3.2.45
 
 devDependencies:
+  '@types/react': 18.0.27
+  '@types/react-dom': 18.0.10
   '@unocss/reset': 0.48.5
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
+  browserslist: 4.21.4
+  lightningcss: 1.18.0
   unocss: 0.48.5_vite@4.0.4
-  unocss-preset-autoprefixer: 0.0.4_unocss@0.48.5
+  unocss-preset-autoprefixer: 0.0.4_djfgd4jqvn4a6qbhd2q2tkbene
   vite: 4.0.4
 
 packages:
@@ -74,7 +94,29 @@ packages:
     resolution: {integrity: sha512-u/Uq/UqPgrIrH6Zmz96JCXPKDfN0rz/z+1GXHDOanmD4E600cneQ/IycaBjnyJM7Z863pYAZapBHaR6BpYa3LQ==}
     dev: false
 
-  /@babylonjs/inspector/5.43.1_@babylonjs+core@5.43.1:
+  /@babylonjs/gui-editor/5.43.1_pjibe5w4es5u6icqfvnk2zw56y:
+    resolution: {integrity: sha512-RHDO+4ZCjqs2JFjkDuhbvQlkwH8C+rN2U8WkjSDt421vGgFGu54eXIdV835Fd7lFyHFmljeTVRryZdVZmvEubg==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+      '@babylonjs/gui': ^5.22.0
+      '@types/react': '>=16.7.3'
+      '@types/react-dom': '>=16.0.9'
+    dependencies:
+      '@babylonjs/core': 5.43.1
+      '@babylonjs/gui': 5.43.1_@babylonjs+core@5.43.1
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+    dev: false
+
+  /@babylonjs/gui/5.43.1_@babylonjs+core@5.43.1:
+    resolution: {integrity: sha512-Lq01RhtjBfbruQb08ipvUhPqPLdeOtJQG3AC1ar/D4k5xAFTGEq7WHMiNSQ5hIHBefIPAiG3jnWdRzxFWqee8Q==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+    dependencies:
+      '@babylonjs/core': 5.43.1
+    dev: false
+
+  /@babylonjs/inspector/5.43.1_bmecces5mfjf6blte5bfqeb5ju:
     resolution: {integrity: sha512-fWu7iCyBY5GnNDbaMjxdryB/ZJ6qJ3CQ14uNW0JLeDVxmO1/0e4WIb8NT/mqCMbSVc/rUN8ujv0mE3ppvD84sw==}
     peerDependencies:
       '@babylonjs/core': ^5.22.0
@@ -87,9 +129,44 @@ packages:
       '@types/react-dom': '>=16.0.9'
     dependencies:
       '@babylonjs/core': 5.43.1
+      '@babylonjs/gui': 5.43.1_@babylonjs+core@5.43.1
+      '@babylonjs/gui-editor': 5.43.1_pjibe5w4es5u6icqfvnk2zw56y
+      '@babylonjs/loaders': 5.43.1_glufdhy5gescjdw5mo4zsoqw3u
+      '@babylonjs/materials': 5.43.1_@babylonjs+core@5.43.1
+      '@babylonjs/serializers': 5.43.1_glufdhy5gescjdw5mo4zsoqw3u
       '@fortawesome/fontawesome-svg-core': 6.2.1
       '@fortawesome/free-regular-svg-icons': 6.2.1
       '@fortawesome/free-solid-svg-icons': 6.2.1
+      '@types/react': 18.0.27
+      '@types/react-dom': 18.0.10
+    dev: false
+
+  /@babylonjs/loaders/5.43.1_glufdhy5gescjdw5mo4zsoqw3u:
+    resolution: {integrity: sha512-PdOM+JJzwvEBQAjpHkVk7bNG9O8jpWmhZ1XMJmdnnF4BV193j7F0pP+e/JG4NxyaE9CzwkjK7WxcV+4Lrw+KBw==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+      babylonjs-gltf2interface: ^5.22.0
+    dependencies:
+      '@babylonjs/core': 5.43.1
+      babylonjs-gltf2interface: 5.43.1
+    dev: false
+
+  /@babylonjs/materials/5.43.1_@babylonjs+core@5.43.1:
+    resolution: {integrity: sha512-zCkP35K74cBOlDqjndhG6yhUx8KvTX1i8daTST9E2SuWP3TrRgM2IFkM8a5DQbk+OGycyRg4U4UojKItpWHfWw==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+    dependencies:
+      '@babylonjs/core': 5.43.1
+    dev: false
+
+  /@babylonjs/serializers/5.43.1_glufdhy5gescjdw5mo4zsoqw3u:
+    resolution: {integrity: sha512-4ScQoJHxoGGsllRYPgk5oNCp4ON4NX9XC+FC1ZddVgnMjZbJwriBLZEaeI0ngPc/xElRD/Gx5vmrcZWn/wMuow==}
+    peerDependencies:
+      '@babylonjs/core': ^5.22.0
+      babylonjs-gltf2interface: ^5.22.0
+    dependencies:
+      '@babylonjs/core': 5.43.1
+      babylonjs-gltf2interface: 5.43.1
     dev: false
 
   /@esbuild/android-arm/0.16.17:
@@ -409,6 +486,24 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
+  /@types/prop-types/15.7.5:
+    resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
+
+  /@types/react-dom/18.0.10:
+    resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
+    dependencies:
+      '@types/react': 18.0.27
+
+  /@types/react/18.0.27:
+    resolution: {integrity: sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==}
+    dependencies:
+      '@types/prop-types': 15.7.5
+      '@types/scheduler': 0.16.2
+      csstype: 3.1.1
+
+  /@types/scheduler/0.16.2:
+    resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+
   /@unocss/astro/0.48.5_vite@4.0.4:
     resolution: {integrity: sha512-3OkMAceJwfa+mUfPEAATRNCXwpI4aLl+upXVsoHDN013pM7st4oC7ZgYHvb8EajuSinng9ffMcPfgrIJK9N5bQ==}
     dependencies:
@@ -662,6 +757,10 @@ packages:
       picomatch: 2.3.1
     dev: true
 
+  /babylonjs-gltf2interface/5.43.1:
+    resolution: {integrity: sha512-8TUwRZV0e9aJ3Joz+dbOjZHCgtnmK32ROTqIHJMFoQVIV3029dXAf/gGPGx6YbEfc+0VdfnEdxdAhSQXW58P1g==}
+    dev: false
+
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
@@ -674,6 +773,17 @@ packages:
       fill-range: 7.0.1
     dev: true
 
+  /browserslist/4.21.4:
+    resolution: {integrity: sha512-CBHJJdDmgjl3daYjN5Cp5kbTf1mUhZoS+beLklHIvkOWscs83YAhLlF3Wsh/lciQYAcbBJgTOD44VtG31ZM4Hw==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+    dependencies:
+      caniuse-lite: 1.0.30001447
+      electron-to-chromium: 1.4.284
+      node-releases: 2.0.8
+      update-browserslist-db: 1.0.10_browserslist@4.21.4
+    dev: true
+
   /busboy/1.6.0:
     resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
     engines: {node: '>=10.16.0'}
@@ -684,6 +794,10 @@ packages:
   /cac/6.7.14:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
     engines: {node: '>=8'}
+    dev: true
+
+  /caniuse-lite/1.0.30001447:
+    resolution: {integrity: sha512-bdKU1BQDPeEXe9A39xJnGtY0uRq/z5osrnXUw0TcK+EYno45Y+U7QU9HhHEyzvMDffpYadFXi3idnSNkcwLkTw==}
     dev: true
 
   /chokidar/3.5.3:
@@ -729,6 +843,9 @@ packages:
   /csstype/2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
 
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -749,8 +866,18 @@ packages:
     resolution: {integrity: sha512-lrbCJwD9saUQrqUfXvl6qoM+QN3W7tLV5pAOs+OqOmopCCz/JkE05MHedJR1xfk4IAnZuJXPVuN5+7jNA2ZCiA==}
     dev: true
 
+  /detect-libc/1.0.3:
+    resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
+    engines: {node: '>=0.10'}
+    hasBin: true
+    dev: true
+
   /duplexer/0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
+    dev: true
+
+  /electron-to-chromium/1.4.284:
+    resolution: {integrity: sha512-M8WEXFuKXMYMVr45fo8mq0wUrrJHheiKZf6BArTKk9ZBYCKJEOU5H8cdWgDT+qCVZf7Na4lVUaZsA+h6uA9+PA==}
     dev: true
 
   /esbuild/0.16.17:
@@ -781,6 +908,11 @@ packages:
       '@esbuild/win32-arm64': 0.16.17
       '@esbuild/win32-ia32': 0.16.17
       '@esbuild/win32-x64': 0.16.17
+    dev: true
+
+  /escalade/3.1.1:
+    resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
+    engines: {node: '>=6'}
     dev: true
 
   /estree-walker/2.0.2:
@@ -924,6 +1056,94 @@ packages:
     resolution: {integrity: sha512-dLkz37Ab97HWMx9KTes3Tbi3D1ln9fCAy2zr2YVExJasDRPGRaKcoE4fycWNtnCAJfjFqe0cnY+f8KT2JePEXQ==}
     dev: true
 
+  /lightningcss-darwin-arm64/1.18.0:
+    resolution: {integrity: sha512-OqjydwtiNPgdH1ByIjA1YzqvDG/OMR6L3LPN6wRl1729LB0y4Mik7L06kmZaTb+pvUHr+NmDd2KCwnlrQ4zO3w==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-darwin-x64/1.18.0:
+    resolution: {integrity: sha512-mNiuPHj89/JHZmJMp+5H8EZSt6EL5DZRWJ31O6k3DrLLnRIQjXuXdDdN8kP7LoIkeWI5xvyD60CsReJm+YWYAw==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-linux-arm-gnueabihf/1.18.0:
+    resolution: {integrity: sha512-S+25JjI6601HiAVoTDXW6SqH+E94a+FHA7WQqseyNHunOgVWKcAkNEc2LJvVxgwTq6z41sDIb9/M3Z9wa9lk4A==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-linux-arm64-gnu/1.18.0:
+    resolution: {integrity: sha512-JSqh4+21dCgBecIQUet35dtE4PhhSEMyqe3y0ZNQrAJQ5kyUPSQHiw81WXnPJcOSTTpG0TyMLiC8K//+BsFGQA==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-linux-arm64-musl/1.18.0:
+    resolution: {integrity: sha512-2FWHa8iUhShnZnqhn2wfIcK5adJat9hAAaX7etNsoXJymlliDIOFuBQEsba2KBAZSM4QqfQtvRdR7m8i0I7ybQ==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-linux-x64-gnu/1.18.0:
+    resolution: {integrity: sha512-plCPGQJtDZHcLVKVRLnQVF2XRsIC32WvuJhQ7fJ7F6BV98b/VZX0OlX05qUaOESD9dCDHjYSfxsgcvOKgCWh7A==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-linux-x64-musl/1.18.0:
+    resolution: {integrity: sha512-na+BGtVU6fpZvOHKhnlA0XHeibkT3/46nj6vLluG3kzdJYoBKU6dIl7DSOk++8jv4ybZyFJ0aOFMMSc8g2h58A==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss-win32-x64-msvc/1.18.0:
+    resolution: {integrity: sha512-5qeAH4RMNy2yMNEl7e5TI6upt/7xD2ZpHWH4RkT8iJ7/6POS5mjHbXWUO9Q1hhDhqkdzGa76uAdMzEouIeCyNw==}
+    engines: {node: '>= 12.0.0'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /lightningcss/1.18.0:
+    resolution: {integrity: sha512-uk10tNxi5fhZqU93vtYiQgx/8a9f0Kvtj5AXIm+VlOXY+t/DWDmCZWJEkZJmmALgvbS6aAW8or+Kq85eJ6TDTw==}
+    engines: {node: '>= 12.0.0'}
+    dependencies:
+      detect-libc: 1.0.3
+    optionalDependencies:
+      lightningcss-darwin-arm64: 1.18.0
+      lightningcss-darwin-x64: 1.18.0
+      lightningcss-linux-arm-gnueabihf: 1.18.0
+      lightningcss-linux-arm64-gnu: 1.18.0
+      lightningcss-linux-arm64-musl: 1.18.0
+      lightningcss-linux-x64-gnu: 1.18.0
+      lightningcss-linux-x64-musl: 1.18.0
+      lightningcss-win32-x64-msvc: 1.18.0
+    dev: true
+
   /local-pkg/0.4.3:
     resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
     engines: {node: '>=14'}
@@ -990,6 +1210,10 @@ packages:
 
   /node-fetch-native/0.1.8:
     resolution: {integrity: sha512-ZNaury9r0NxaT2oL65GvdGDy+5PlSaHTovT6JV5tOW07k1TQmgC0olZETa4C9KZg0+6zBr99ctTYa3Utqj9P/Q==}
+    dev: true
+
+  /node-releases/2.0.8:
+    resolution: {integrity: sha512-dFSmB8fFHEH/s81Xi+Y/15DQY6VHW81nXRj86EMSL3lmuTmK1e+aT4wrFCkTbm+gSwkw4KpX+rT/pMM2c1mF+A==}
     dev: true
 
   /normalize-path/3.0.0:
@@ -1198,13 +1422,15 @@ packages:
       busboy: 1.6.0
     dev: true
 
-  /unocss-preset-autoprefixer/0.0.4_unocss@0.48.5:
+  /unocss-preset-autoprefixer/0.0.4_djfgd4jqvn4a6qbhd2q2tkbene:
     resolution: {integrity: sha512-i6OvzPiVnZa7PfsmFpz6VGlBgxP3kcPkcKLwq+DZf5t5bWG1TK1WuVcgdxx51l6pBgGP2NXd8348b8PDACwGHA==}
     peerDependencies:
       browserslist: ^4.21.3
       lightningcss: ^1.16.0
       unocss: ^0.45.5
     dependencies:
+      browserslist: 4.21.4
+      lightningcss: 1.18.0
       unocss: 0.48.5_vite@4.0.4
     dev: true
 
@@ -1238,6 +1464,17 @@ packages:
       - rollup
       - supports-color
       - vite
+    dev: true
+
+  /update-browserslist-db/1.0.10_browserslist@4.21.4:
+    resolution: {integrity: sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ==}
+    hasBin: true
+    peerDependencies:
+      browserslist: '>= 4.21.0'
+    dependencies:
+      browserslist: 4.21.4
+      escalade: 3.1.1
+      picocolors: 1.0.0
     dev: true
 
   /vite/4.0.4:

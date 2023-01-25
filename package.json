@@ -10,12 +10,22 @@
   },
   "dependencies": {
     "@babylonjs/core": "^5.43.1",
+    "@babylonjs/gui": "^5.43.1",
+    "@babylonjs/gui-editor": "^5.43.1",
     "@babylonjs/inspector": "^5.43.1",
+    "@babylonjs/loaders": "^5.43.1",
+    "@babylonjs/materials": "^5.43.1",
+    "@babylonjs/serializers": "^5.43.1",
+    "babylonjs-gltf2interface": "^5.43.1",
     "vue": "^3.2.45"
   },
   "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "@unocss/reset": "^0.48.5",
     "@vitejs/plugin-vue": "^4.0.0",
+    "browserslist": "^4.21.4",
+    "lightningcss": "^1.18.0",
     "unocss": "^0.48.5",
     "unocss-preset-autoprefixer": "^0.0.4",
     "vite": "^4.0.4"
