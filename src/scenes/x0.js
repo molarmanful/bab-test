@@ -1,11 +1,10 @@
-import { Engine, Scene, FreeCamera, Vector3, MeshBuilder, StandardMaterial, Color3, HemisphericLight } from '@babylonjs/core'
+import { Engine, Scene, Vector3, MeshBuilder, StandardMaterial, Color3, HemisphericLight, ArcRotateCamera } from '@babylonjs/core'
 
-const createScene = (canvas) => {
+const createScene = canvas => {
   const engine = new Engine(canvas)
   const scene = new Scene(engine)
 
-  const camera = new FreeCamera('camera1', new Vector3(0, 5, -10), scene)
-  camera.setTarget(Vector3.Zero())
+  const camera = new ArcRotateCamera('camera1', Math.PI / 4, Math.PI / 3, 10, Vector3.Zero(), scene)
   camera.attachControl(canvas, true)
 
   new HemisphericLight('light', Vector3.Up(), scene)
