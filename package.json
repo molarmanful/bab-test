@@ -10,14 +10,9 @@
   },
   "dependencies": {
     "@babylonjs/core": "^5.43.1",
-    "@babylonjs/gui": "^5.43.1",
-    "@babylonjs/gui-editor": "^5.43.1",
-    "@babylonjs/inspector": "^5.43.1",
-    "@babylonjs/loaders": "^5.43.1",
-    "@babylonjs/materials": "^5.43.1",
-    "@babylonjs/serializers": "^5.43.1",
-    "babylonjs-gltf2interface": "^5.43.1",
-    "vue": "^3.2.45"
+    "js-combinatorics": "^2.1.1",
+    "vue": "^3.2.45",
+    "vue-resize-observer": "^2.0.15"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
