@@ -1,18 +1,22 @@
-import { Engine, Scene, Vector3, MeshBuilder, StandardMaterial, Color3, HemisphericLight, ArcRotateCamera } from '@babylonjs/core'
+import * as B from '@babylonjs/core'
 
 const createScene = canvas => {
-  const engine = new Engine(canvas)
-  const scene = new Scene(engine)
+  const engine = new B.Engine(canvas)
+  const scene = new B.Scene(engine)
+  scene.clearColor = B.Color3.Black()
 
-  const camera = new ArcRotateCamera('camera1', Math.PI / 4, Math.PI / 3, 10, Vector3.Zero(), scene)
+  const camera = new B.ArcRotateCamera('camera1', Math.PI / 4, Math.PI / 3, 10, B.Vector3.Zero(), scene)
   camera.attachControl(canvas, true)
 
-  new HemisphericLight('light', Vector3.Up(), scene)
+  const light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
 
-  const box = MeshBuilder.CreateBox('box', { size: 2 }, scene)
-  const material = new StandardMaterial('box-material', scene)
-  material.diffuseColor = Color3.Blue()
+  const box = B.MeshBuilder.CreateBox('box', { size: 1 }, scene)
+  const material = new B.StandardMaterial('box-material', scene)
+  material.diffuseColor = B.Color3.White()
+  material.emissiveColor = new B.Color3(0, 1, 1)
   box.material = material
+
+  const gl = new B.GlowLayer("glow", scene)
 
   engine.runRenderLoop(() => {
     scene.render()
