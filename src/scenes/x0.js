@@ -15,9 +15,9 @@ let createScene = async (canvas, cb = _ => { }) => {
   let scene = new B.Scene(engine)
   scene.clearColor = B.Color3.Black()
 
-  let camera = new B.ArcRotateCamera('camera1', Math.PI / 2, Math.PI / 2, 100, B.Vector3.Zero(), scene)
+  let camera = new B.ArcRotateCamera('camera', Math.PI / 4, Math.PI / 3, 100, B.Vector3.Zero(), scene)
   camera.fov = .1
-  camera.attachControl(canvas, true)
+  // camera.attachControl(canvas, true)
 
   let light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
 
@@ -25,32 +25,36 @@ let createScene = async (canvas, cb = _ => { }) => {
     mainTextureSamples: 4,
   })
 
-  let boxSize = .5
+  let boxSize = .2
   let box = B.MeshBuilder.CreateBox('box', { size: boxSize }, scene)
 
-  let ixc = 3
+  let ixc = 10
   let mats = [...new BaseN([...new Array(ixc).keys()].map(x => (x - (ixc / 2 | 0)) * boxSize * 2), 3)]
   let matrixBuf = new Float32Array(mats.length * 16)
   let colorBuf = new Float32Array(mats.length * 3)
 
   let time = 0
+  let cnt = 0
   let mats0
   let mats1 = mats
   let cols0
-  let cols1 = mats.map(_ => shuf([0, 1, 1]))
+  let cols1 = mats
 
   let rst = _ => {
     time = 0
+    cnt++
     mats0 = mats1
     mats1 = mats.map(p => p.map(n => n + (Math.random() < .5 ? 1 : -1) * boxSize / 2))
     cols0 = cols1
-    cols1 = mats.map(_ => shuf([0, 1, 1]))
+    let col = Math.random()
+    cols1 = mats.map(_ => shuf([0, col, 1]))
   }
   rst()
 
   let dur = 1000
   scene.registerBeforeRender(_ => {
     time += engine.getDeltaTime()
+
     if (time >= dur) rst()
     else {
       mats0.map((p, i) => {
@@ -64,18 +68,24 @@ let createScene = async (canvas, cb = _ => { }) => {
     }
     box.thinInstanceSetBuffer('matrix', matrixBuf, 16)
     box.thinInstanceSetBuffer('color', colorBuf, 3)
-  })
 
-  B.Animation.CreateAndStartAnimation(
-    'anim-rot',
-    box,
-    'rotation',
-    1,
-    60,
-    box.rotation,
-    new B.Vector3(Math.PI * 2, 0, Math.PI * 2),
-    B.Animation.ANIMATIONLOOPMODE_CYCLE
-  )
+    if (cnt >= 4) {
+      cnt = 0
+      let ease = new B.ExponentialEase(5)
+      ease.setEasingMode(B.EasingFunction.EASINGMODE_EASEINOUT)
+      B.Animation.CreateAndStartAnimation(
+        '',
+        box,
+        'rotation',
+        60,
+        60,
+        box.rotation,
+        box.rotation.add(new B.Vector3(...shuf([0, 0, (Math.random() < .5 ? 1 : -1) * Math.PI / 2]))),
+        B.Animation.ANIMATIONLOOPMODE_CONSTANT,
+        ease
+      )
+    }
+  })
 
   engine.runRenderLoop(() => {
     scene.render()
