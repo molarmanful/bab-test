@@ -62,15 +62,21 @@ let createScene = async (canvas, cb = _ => { }) => {
   let mats1 = mats
   let cols0
   let cols1 = mats
+  let start = 4
 
   let rst = _ => {
     time = 0
     cnt++
     mats0 = mats1
-    mats1 = mats.map(p => p.map(n => n + (Math.random() < .5 ? 1 : -1) * boxSize / 2))
     cols0 = cols1
-    let col = Math.random()
-    cols1 = mats.map(_ => shuf([0, col, 1]))
+    if (start > 0) start--
+    if (start < 3) {
+      mats1 = mats.map(p => p.map(n => n + (Math.random() < .5 ? 1 : -1) * boxSize / 2))
+    }
+    if (start <= 0) {
+      let col = Math.random()
+      cols1 = mats.map(_ => shuf([0, col, 1]))
+    }
   }
   rst()
 
