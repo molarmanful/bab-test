@@ -6,8 +6,10 @@ let bcan = ref(null)
 let fps = ref(0)
 
 onMounted(_ => {
-  createScene(bcan.value, _ => { }, ({ engine }) => {
-    fps.value = engine.getFps() | 0
+  createScene(bcan.value, ({ engine, scene }) => {
+    scene.registerAfterRender(_ => {
+      fps.value = engine.getFps() | 0
+    })
   })
 })
 </script>
