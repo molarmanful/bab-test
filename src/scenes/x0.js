@@ -28,17 +28,6 @@ let createScene = async (canvas, cb = _ => { }) => {
   let boxSize = .5
   let box = B.MeshBuilder.CreateBox('box', { size: boxSize }, scene)
 
-  B.Animation.CreateAndStartAnimation(
-    'anim-rot',
-    box,
-    'rotation',
-    1,
-    60,
-    box.rotation,
-    new B.Vector3(Math.PI * 2, 0, Math.PI * 2),
-    B.Animation.ANIMATIONLOOPMODE_CYCLE
-  )
-
   let ixc = 3
   let mats = [...new BaseN([...new Array(ixc).keys()].map(x => (x - (ixc / 2 | 0)) * boxSize * 2), 3)]
   let matrixBuf = new Float32Array(mats.length * 16)
@@ -76,6 +65,17 @@ let createScene = async (canvas, cb = _ => { }) => {
     box.thinInstanceSetBuffer('matrix', matrixBuf, 16)
     box.thinInstanceSetBuffer('color', colorBuf, 3)
   })
+
+  B.Animation.CreateAndStartAnimation(
+    'anim-rot',
+    box,
+    'rotation',
+    1,
+    60,
+    box.rotation,
+    new B.Vector3(Math.PI * 2, 0, Math.PI * 2),
+    B.Animation.ANIMATIONLOOPMODE_CYCLE
+  )
 
   engine.runRenderLoop(() => {
     scene.render()
