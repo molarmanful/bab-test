@@ -11,7 +11,7 @@ let shuf = xs => {
 }
 
 let createScene = async (canvas, cb = _ => { }) => {
-  let engine = new B.Engine(canvas)
+  let engine = new B.Engine(canvas, true)
   let scene = new B.Scene(engine)
   scene.clearColor = B.Color3.Black()
 
@@ -28,8 +28,12 @@ let createScene = async (canvas, cb = _ => { }) => {
   let boxSize = .2
   let box = B.MeshBuilder.CreateBox('box', { size: boxSize }, scene)
 
-  let ixc = 10
-  let mats = [...new BaseN([...new Array(ixc).keys()].map(x => (x - (ixc / 2 | 0)) * boxSize * 2), 3)]
+  let ixc = 11
+  let mats = [...new BaseN([...new Array(ixc).keys()].map(x =>
+    (x - (ixc / 2 | 0)) * boxSize * 2
+  ), 3)].filter(p =>
+    new B.Vector3(...p).lengthSquared() <= (boxSize * ixc) ** 2
+  )
   let matrixBuf = new Float32Array(mats.length * 16)
   let colorBuf = new Float32Array(mats.length * 3)
 
