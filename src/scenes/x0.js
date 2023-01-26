@@ -10,7 +10,7 @@ let shuf = xs => {
   return xs
 }
 
-let createScene = async (canvas, cb = _ => { }) => {
+let createScene = async (canvas, cb = _ => { }, rcb = _ => { }) => {
   let engine = new B.Engine(canvas, true)
   let scene = new B.Scene(engine)
   scene.clearColor = B.Color3.Black()
@@ -93,6 +93,7 @@ let createScene = async (canvas, cb = _ => { }) => {
 
   engine.runRenderLoop(() => {
     scene.render()
+    rcb({ engine, scene })
   })
 
   addEventListener('resize', _ => {
