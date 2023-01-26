@@ -15,7 +15,7 @@ let createScene = async (canvas, cb = _ => { }) => {
   let scene = new B.Scene(engine)
   scene.clearColor = B.Color3.Black()
 
-  let camera = new B.ArcRotateCamera('camera1', Math.PI / 4, Math.PI / 3, 100, B.Vector3.Zero(), scene)
+  let camera = new B.ArcRotateCamera('camera1', Math.PI / 2, Math.PI / 2, 100, B.Vector3.Zero(), scene)
   camera.fov = .1
   camera.attachControl(canvas, true)
 
@@ -35,7 +35,7 @@ let createScene = async (canvas, cb = _ => { }) => {
     1,
     60,
     box.rotation,
-    new B.Vector3(Math.PI * 2, Math.PI * 2, Math.PI * 2),
+    new B.Vector3(Math.PI * 2, 0, Math.PI * 2),
     B.Animation.ANIMATIONLOOPMODE_CYCLE
   )
 
