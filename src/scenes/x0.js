@@ -13,7 +13,7 @@ let shuf = xs => {
 let createScene = async (canvas, cb = _ => { }) => {
   let engine = new B.Engine(canvas)
   let scene = new B.Scene(engine)
-  scene.clearColor = B.Color3.Black()
+  scene.clearColor = B.Color3.FromHexString('#000303').toLinearSpace()
 
   let camera = new B.ArcRotateCamera('camera', Math.PI / 4, Math.PI / 3, 100, B.Vector3.Zero(), scene)
   camera.fov = .1
@@ -27,14 +27,15 @@ let createScene = async (canvas, cb = _ => { }) => {
 
   // let light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
   let light = new B.DirectionalLight('light', new B.Vector3(-1, -4, -2), scene)
-  light.intensity = 1
-  let shadow = new B.CascadedShadowGenerator(1024, light)
+  light.intensity = 1.2
+  let shadow = new B.CascadedShadowGenerator(2048, light)
   shadow.usePercentageCloserFiltering = true
   // shadow.stabilizeCascades = true
   shadow.lambda = 1
   shadow.cascadeBlendPercentage = 0
   shadow.shadowMaxZ = camera.maxZ
   shadow.depthClamp = false
+  shadow.autoCalcDepthBounds = true
 
   let gl = new B.GlowLayer('glow', scene, {
     mainTextureSamples: 4,
