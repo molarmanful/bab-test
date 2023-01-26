@@ -84,7 +84,7 @@ let createScene = async (canvas, cb = _ => { }, rcb = _ => { }) => {
         60,
         60,
         box.rotation,
-        box.rotation.add(new B.Vector3(...shuf([0, 0, (Math.random() < .5 ? 1 : -1) * Math.PI / 2]))),
+        box.rotation.add(new B.Vector3(...shuf([0, 0, [1, -1][Math.random() * 2 | 0] * Math.PI / [2, 1][Math.random() * 2 | 0]]))),
         B.Animation.ANIMATIONLOOPMODE_CONSTANT,
         ease
       )
