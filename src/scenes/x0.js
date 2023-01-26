@@ -11,15 +11,16 @@ let shuf = xs => {
 }
 
 let createScene = async (canvas, cb = _ => { }) => {
-  let engine = new B.Engine(canvas)
+  let engine = new B.Engine(canvas, true)
   let scene = new B.Scene(engine)
   scene.clearColor = B.Color3.FromHexString('#000303').toLinearSpace()
 
-  let camera = new B.ArcRotateCamera('camera', Math.PI / 4, Math.PI / 3, 100, B.Vector3.Zero(), scene)
+  let camera = new B.ArcRotateCamera('camera', Math.PI / 4, Math.PI / 4, 100, B.Vector3.Zero(), scene)
   camera.fov = .1
   // camera.attachControl(canvas, true)
 
   let pipe = new B.DefaultRenderingPipeline('pipe', true, scene, [camera])
+  pipe.samples = 4
   pipe.chromaticAberrationEnabled = true
   pipe.chromaticAberration.aberrationAmount = 6
   pipe.grainEnabled = true
@@ -37,9 +38,9 @@ let createScene = async (canvas, cb = _ => { }) => {
   shadow.depthClamp = false
   shadow.autoCalcDepthBounds = true
 
-  let gl = new B.GlowLayer('glow', scene, {
-    mainTextureSamples: 4,
-  })
+  // let gl = new B.GlowLayer('glow', scene, {
+  //   mainTextureSamples: 4,
+  // })
 
   let boxSize = .2
   let box = B.MeshBuilder.CreateBox('box', { size: boxSize }, scene)
