@@ -11,7 +11,7 @@ let shuf = xs => {
 }
 
 let createScene = async (canvas, cb = _ => { }) => {
-  let engine = new B.Engine(canvas, true)
+  let engine = new B.Engine(canvas)
   let scene = new B.Scene(engine)
   scene.clearColor = B.Color3.Black()
 
@@ -19,7 +19,22 @@ let createScene = async (canvas, cb = _ => { }) => {
   camera.fov = .1
   // camera.attachControl(canvas, true)
 
-  let light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
+  let pipe = new B.DefaultRenderingPipeline('pipe', true, scene, [camera])
+  pipe.chromaticAberrationEnabled = true
+  pipe.chromaticAberration.aberrationAmount = 6
+  pipe.grainEnabled = true
+  pipe.grain.animated = true
+
+  // let light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
+  let light = new B.DirectionalLight('light', new B.Vector3(-1, -4, -2), scene)
+  light.intensity = 1
+  let shadow = new B.CascadedShadowGenerator(1024, light)
+  shadow.usePercentageCloserFiltering = true
+  // shadow.stabilizeCascades = true
+  shadow.lambda = 1
+  shadow.cascadeBlendPercentage = 0
+  shadow.shadowMaxZ = camera.maxZ
+  shadow.depthClamp = false
 
   let gl = new B.GlowLayer('glow', scene, {
     mainTextureSamples: 4,
@@ -27,6 +42,8 @@ let createScene = async (canvas, cb = _ => { }) => {
 
   let boxSize = .2
   let box = B.MeshBuilder.CreateBox('box', { size: boxSize }, scene)
+  shadow.getShadowMap().renderList.push(box)
+  box.receiveShadows = true
 
   let ixc = 11
   let mats = [...new BaseN([...new Array(ixc).keys()].map(x =>
