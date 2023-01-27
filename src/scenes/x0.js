@@ -11,7 +11,9 @@ let shuf = xs => {
 }
 
 let createScene = async (canvas, cb = _ => { }) => {
+  let dpiScale = 4
   let engine = new B.Engine(canvas, true)
+  engine.setHardwareScalingLevel(devicePixelRatio / dpiScale)
   let scene = new B.Scene(engine)
   scene.clearColor = B.Color3.FromHexString('#000303').toLinearSpace()
 
@@ -22,8 +24,9 @@ let createScene = async (canvas, cb = _ => { }) => {
   let pipe = new B.DefaultRenderingPipeline('pipe', true, scene, [camera])
   pipe.samples = 4
   pipe.chromaticAberrationEnabled = true
-  pipe.chromaticAberration.aberrationAmount = 6
+  pipe.chromaticAberration.aberrationAmount = 6 * dpiScale
   pipe.grainEnabled = true
+  pipe.grain.intensity = 20 * dpiScale
   pipe.grain.animated = true
 
   // let light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
