@@ -57,12 +57,12 @@ let createScene = async (canvas, cb = _ => { }) => {
   let colorBuf = new Float32Array(mats.length * 3)
 
   let time = 0
-  let cnt = 0
+  let cnt = 1
   let mats0
   let mats1 = mats
   let cols0
   let cols1 = mats
-  let start = 4
+  let start = 2
 
   let rst = _ => {
     time = 0
@@ -70,10 +70,8 @@ let createScene = async (canvas, cb = _ => { }) => {
     mats0 = mats1
     cols0 = cols1
     if (start > 0) start--
-    if (start < 3) {
+    else {
       mats1 = mats.map(p => p.map(n => n + (Math.random() < .5 ? 1 : -1) * boxSize / 2))
-    }
-    if (start <= 0) {
       let col = Math.random()
       cols1 = mats.map(_ => shuf([0, col, 1]))
     }
