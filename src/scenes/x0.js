@@ -28,7 +28,7 @@ let createScene = async (canvas, cb = _ => { }) => {
 
   // let light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
   let light = new B.DirectionalLight('light', new B.Vector3(-1, -4, -2), scene)
-  light.intensity = 1.2
+  light.intensity = 1.4
   let shadow = new B.CascadedShadowGenerator(2048, light)
   shadow.usePercentageCloserFiltering = true
   // shadow.stabilizeCascades = true
