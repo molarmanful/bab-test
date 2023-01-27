@@ -24,9 +24,8 @@ let createScene = async (canvas, cb = _ => { }) => {
   let pipe = new B.DefaultRenderingPipeline('pipe', true, scene, [camera])
   pipe.samples = 4
   pipe.chromaticAberrationEnabled = true
-  pipe.chromaticAberration.aberrationAmount = 6 * dpiScale
+  pipe.chromaticAberration.aberrationAmount = 6
   pipe.grainEnabled = true
-  pipe.grain.intensity = 20 * dpiScale
   pipe.grain.animated = true
 
   // let light = new B.HemisphericLight('light', new B.Vector3(0, 1, .5), scene)
